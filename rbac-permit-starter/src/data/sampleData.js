@@ -1,0 +1,8 @@
+const sampleData = [
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InVzZXIgb25lIiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20ifQ.KyipaauhQvYUzKuG-PpZIH_fyc-hV-EtlxWT3ERzjYc",
+
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InVzZXIgdHdvIiwiZW1haWwiOiJ1c2VyMkBnbWFpbC5jb20ifQ.YzbIoMEw_cyzdgJdNqFg7WPTy2BqU2ljaKeMFjx3WRo",
+ 
+];
+
+export default sampleData;
