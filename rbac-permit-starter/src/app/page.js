@@ -20,9 +20,6 @@ export default function Home() {
     const data = jwtDecode(token);
     const currentUser = data.name;
     const key = data.id;
-    console.log("Data: ", data);
-    console.log("currentUser: ", currentUser);
-    console.log("Key: ", key);
     setUser(currentUser);
     setIdentifier(key);
   }, [token]);
@@ -37,13 +34,13 @@ export default function Home() {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
-
+// Main function to check if specified operation can be performed by the user 
   const checkPermission = async (operation) => {
     const response = await fetch(`/api/check-permission?id=${identifier}&operation=${operation}`);
     const data = await response.json();
     return data.success;
   };
-
+// Function to handle adding todos
   const handleAddTodo = async () => {
     const isAllowed = await checkPermission("create");
     console.log("isAllowed: ", isAllowed);
@@ -64,7 +61,7 @@ export default function Home() {
     setDeadline("");
     setPriority("low");
   };
-
+// Function to update todos
   const handleToggleDone = async (index) => {
     if (!await checkPermission("update")) {
       alert("You do not have permission to update a to-do.");
@@ -76,7 +73,7 @@ export default function Home() {
     );
     setTodos(updatedTodos);
   };
-
+// Function to delete todos
   const handleDeleteTodo = async (index) => {
     if (!await checkPermission("delete")) {
       alert("You do not have permission to delete a to-do.");
@@ -94,7 +91,7 @@ export default function Home() {
     setEditingDeadline(todo.deadline);
     setEditingPriority(todo.priority);
   };
-
+// Function to edit todos
   const handleSaveEdit = async () => {
     if (!await checkPermission("edit")) {
       alert("You do not have permission to edit a to-do.");
